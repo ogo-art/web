@@ -1,0 +1,506 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fonts personalitzades */
+@font-face {
+  font-family: 'Lori Bold';
+  src: url('../fonts/LoriBold.woff2') format('woff2'),
+       url('../fonts/LoriBold.woff') format('woff'),
+       url('../fonts/LoriBold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lori Medium';
+  src: url('../fonts/LoriMedium.woff2') format('woff2'),
+       url('../fonts/LoriMedium.woff') format('woff'),
+       url('../fonts/LoriMedium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Animació fade-in */
+body {
+  opacity: 0;
+  transition: opacity 2s ease;
+  font-family: 'Lori Medium', sans-serif;
+  background-color: #ffffff;
+}
+
+body.fade-in {
+  opacity: 1;
+}
+
+/* ------------------------------- */
+/* CAPÇALERA VISUAL */
+/* ------------------------------- */
+.cap {
+  height: 39vh;
+  background: #542361;
+  text-align: center;
+  padding-top: 1vh;
+}
+
+.cap img {
+  width: 220px;
+  margin-top: 2vh;
+}
+
+.cap h1 {
+  font-family: 'Lori Medium';
+  font-size: 200%;
+  color: white;
+  margin-top: 3vh;
+}
+
+.cap h2 {
+  font-family: 'Lori Medium';
+  font-size: 250%;
+  color: white;
+}
+
+/* ------------------------------- */
+/* SOBRE OGO */
+/* ------------------------------- */
+.so {
+  height: 35vh;
+  background: rgb(43, 16, 70);
+}
+
+.meitat1 {
+  width: 50%;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #5BC0BE;
+  height: 100%;
+  float: left;
+}
+
+.so .meitat1 h1 {
+  font-family: 'Lori Medium';
+  font-size: clamp(50%, 5vw, 300%);
+  color: white;
+  padding-top: 20px;
+text-align: center;
+  line-height: 130px;
+}
+
+.so .meitat1 p {
+  width: 80%;
+  text-align: justify;
+  margin: 0 10%;
+  font-family: 'Lori Medium';
+  font-size: 110%;
+  color: white;
+  font-size: clamp(80%, 3vw, 110%);
+}
+
+.meitat2 {
+  width: 50%;
+  height: 100%;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #5BC0BE;
+  background: #5BC0BE;
+}
+
+/* ------------------------------- */
+/* CUB OGO */
+/* ------------------------------- */
+.cara {
+  width: 9rem;
+  height: 9rem;
+  position: absolute;
+  text-align: center;
+}
+
+.blanc {
+  background: rgb(255,255,255);
+  background: #542361;
+  transform: translateZ(-9rem);
+}
+
+.blanc img {
+  width: 90%;
+  margin: 5%;
+}
+
+.tronja {
+  background: rgb(255,255,255);
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(207,207,207,1) 100%);
+  transform: rotateX(90deg);
+  transform-origin: bottom;
+}
+
+.tronja img {
+  width: 90%;
+  margin: 5%;
+}
+
+.rosa {
+  background: rgb(255,255,255);
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(207,207,207,1) 100%);
+  transform: rotateY(90deg);
+  transform-origin: left;
+}
+
+.rosa img {
+  width: 90%;
+  margin: 5%;
+}
+
+.blau {
+  background: rgb(255,255,255);
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(207,207,207,1) 100%);
+  transform: rotateY(-90deg);
+  transform-origin: right;
+}
+
+.blau img {
+  width: 90%;
+  margin: 5%;
+}
+
+.verd {
+  background: rgb(255,255,255);
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(207,207,207,1) 100%);
+  transform: rotateX(-90deg);
+  transform-origin: top;
+}
+
+.verd img {
+  width: 90%;
+  margin: 5%;
+}
+
+.lila {
+  background: rgb(255,255,255);
+  background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgba(207,207,207,1) 100%);
+  transform: rotateX(0deg);
+}
+
+.lila img {
+  width: 90%;
+  margin: 5%;
+}
+
+.cub {
+  width: 5rem;
+  height: 5rem;
+  transition: 1s;
+  transform-style: preserve-3d;
+  transform: translateZ(-2.5rem);
+  float: left;
+  position: absolute;
+  top: 47%;
+  right: 25%;
+}
+
+.contenidor {
+  margin: 10rem auto;
+  width: 5rem;
+  height: 5rem;
+  -webkit-perspective: 10rem;
+  perspective: 10rem;
+}
+
+.cub:hover {
+  transform: rotateZ(-180deg) rotateY(200deg)
+}
+
+.joystick {
+  width: 100%;
+  height: 100%;
+}
+
+.boto {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  text-align: center;
+  line-height: 30px;
+  font-family: sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: clamp(80%, 1vw, 200%);
+  background: #542361;
+  border-radius: 40%;
+}
+
+.primer {
+  margin: 0 22%;
+}
+
+.segon {
+  margin: 15vh 0;
+}
+
+.tercer {
+  margin: 15vh 12vh;
+  position: absolute;
+  right: -12vh;
+}
+
+.quart {
+  margin: 0 22%;
+  bottom: 28vh;
+  position: absolute;
+}
+
+/* ------------------------------- */
+/* VIDEO PROMOCIONAL */
+/* ------------------------------- */
+.vp {
+  height: 55vh;
+  text-align: center;
+  background: #542361;
+}
+
+.vp h1 {
+  font-family: 'Lori Medium';
+  font-size: clamp(100%, 5vw, 300%);
+  color: #ffffff;
+  padding-top: 20px;
+text-align: center;
+  line-height: 130px;
+}
+
+.video img {
+  width: 45%;
+  max-width: 45vh;
+  background: red;
+  block-size: clamp(100%, 5vw, 200%);
+}
+
+.vp p {
+  font-family: 'Lori Medium';
+  font-size: clamp(80%, 1vw, 200%);
+  padding-top: 20px;
+  margin: 0 20%;
+  color: white;
+}
+
+/* ------------------------------- */
+/* APP */
+/* ------------------------------- */
+.app {
+  height: 68vh;
+  background: #dddada;
+}
+
+.app h1 {
+  font-family: 'Lori Medium';
+  font-size: 300%;
+  color: #542361;
+  padding-top: 20px;
+  text-align: center
+}
+
+.mobil {
+  height: ;
+  background: red;
+}
+
+.vp p {
+
+}
+
+/* ------------------------------- */
+/* MANUAL */
+/* ------------------------------- */
+.dt {
+  height: 25vh;
+  background: #542361;
+}
+
+.dt h1 {
+  font-family: 'Lori Medium';
+  font-size: 150%;
+  color: #ffffff;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.botdt {
+  width: 60%;
+  max-width: 70vh;
+  max-height: 12vh;
+  background: #5BC0BE;
+  block-size: clamp(100%, 7vw, 200%);
+  margin: 0 auto;
+  border-radius: 25%;
+  border-width: 3px;
+  border-style: solid;
+  border-color: white;
+}
+
+.botdt:hover {
+  background: #542361;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #5BC0BE;
+}
+
+.botdt p {
+  text-align: center;
+  color: white;
+  font-family: 'Lori Bold';
+  line-height: 190%;
+  font-size: 350%;
+}
+
+/* ------------------------------- */
+/* Tenda (Carrusel) */
+/* ------------------------------- */
+.te {
+  height: 43vh;
+  background: #542361;
+}
+
+.te h1 {
+  font-family: 'Lori Medium';
+  font-size: clamp(100%, 5vw, 250%);
+  color: #ffffff;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.carrusel-container {
+  position: relative;
+  width: 300px;
+  margin: auto;
+  border-radius: 10px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: white;
+  background-color: white;
+}
+
+.carrusel {
+  overflow: hidden;
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.carrusel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.foto {
+  min-width: 300px;
+  height: 300px;
+}
+
+.foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.flecha {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1;
+  padding: 0 10px;
+  border-radius: 40%;
+  user-select: none;
+  color: #ffffff;
+}
+
+.flecha.izquierda {
+  left: -50px;
+}
+
+.flecha.derecha {
+  right: -55px;
+}
+
+body.linterna::before {
+  content: "";
+  position: fixed;
+  top: var(--y, 100%);
+  left: var(--x, 100%);
+  width: 70px;
+  height: 70px;
+  border-radius: 40%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, transparent 85%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: top 0.05s, left 0.05s;
+}
+
+.carrusel-container1 {
+  position: relative;
+  width: 300px;
+  margin: auto;
+  border-radius: 10px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: white;
+  background-color: white;
+}
+
+.carrusel1 {
+  overflow: hidden;
+  width: 300px;
+  height: 500px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.carrusel-track1 {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.flecha1 {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1;
+  padding: 0 10px;
+  border-radius: 40%;
+  user-select: none;
+  color: #ffffff;
+}
+
+.flecha1.izquierda1 {
+  left: -50px;
+}
+
+.flecha1.derecha1 {
+  right: -55px;
+}
+
+.foto1 {
+  min-width: 300px;
+  height: 500px;
+}
+
+.foto1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

@@ -1,0 +1,104 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@font-face {
+    font-family: 'Lori Bold';
+    src: url('../fonts/LoriBold.woff2') format('woff2'),
+        url('../fonts/LoriBold.woff') format('woff'),
+        url('../fonts/LoriBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lori Medium';
+    src: url('../fonts/LoriMedium.woff2') format('woff2'),
+        url('../fonts/LoriMedium.woff') format('woff'),
+        url('../fonts/LoriMedium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+.fons {
+    background: #591662;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+img {
+    width: 300px;
+    opacity: 0;
+    animation: inside 2s ease-in-out forwards;
+}
+
+
+@keyframes inside {
+    from {
+        opacity: 0;
+        transform: scale(10);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.eslogan {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+}
+
+h1, h2 {
+    position: absolute;
+    text-align: center;
+    font-family: 'Lori Bold';
+    color: white;
+    font-size: 140%;
+    top: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #591662;
+    margin: 0;
+    z-index: 50;
+    opacity: 0;
+    animation: 2s anim2 2s ease-in-out forwards;
+}
+
+h2 {
+    font-size: 270%;
+    z-index: 49;
+    line-height: 80%;
+}
+
+h2:hover {
+    color: #591662;
+    background: white;
+    border-radius: 10%;
+}
+
+@keyframes anim2 {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+body.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+/*------------------------------------cookies------------------------------------*/
