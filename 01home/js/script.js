@@ -1,95 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Reiniciar animació fade-in
-  document.body.classList.remove('fade-in');
-  void document.body.offsetWidth;
-  document.body.classList.add('fade-in');
+    // Reiniciar animació fade-in
+    document.body.classList.remove('fade-in');
+    void document.body.offsetWidth;
+    document.body.classList.add('fade-in');
 
-  // Carrusels múltiples genèrics (per .carrusel-container)
-  document.querySelectorAll('.carrusel-container').forEach(container => {
-    const track = container.querySelector('.carrusel-track');
-    const btnIzq = container.querySelector('.flecha.izquierda');
-    const btnDer = container.querySelector('.flecha.derecha');
-
-    let currentIndex = 0;
-
-    btnDer?.addEventListener('click', () => {
-      if (currentIndex < track.children.length - 1) {
-        currentIndex++;
-        updateCarrusel();
-      }
-    });
-
-    btnIzq?.addEventListener('click', () => {
-      if (currentIndex > 0) {
-        currentIndex--;
-        updateCarrusel();
-      }
-    });
-
-    function updateCarrusel() {
-      const offset = -track.children[0].offsetWidth * currentIndex;
-      track.style.transform = `translateX(${offset}px)`;
-    }
-  });
-
-  // Carrusel 1 (amb classes diferents)
-  document.querySelectorAll('.carrusel-container1').forEach(container => {
-    const track = container.querySelector('.carrusel-track1');
-    const btnIzq = container.querySelector('.flecha1.izquierda1');
-    const btnDer = container.querySelector('.flecha1.derecha1');
-
-    let currentIndex = 0;
-
-    btnDer?.addEventListener('click', () => {
-      if (currentIndex < track.children.length - 1) {
-        currentIndex++;
-        updateCarrusel1();
-      }
-    });
-
-    btnIzq?.addEventListener('click', () => {
-      if (currentIndex > 0) {
-        currentIndex--;
-        updateCarrusel1();
-      }
-    });
-
-    function updateCarrusel1() {
-      const offset = -track.children[0].offsetWidth * currentIndex;
-      track.style.transform = `translateX(${offset}px)`;
-    }
-  });
-
-  // Cub OGO
-  let rotX = 0;
-  let rotY = 0;
-  const cub = document.querySelector(".cub");
-
-  window.dalt = function () {
-    rotX += 90;
-    updateCubeRotation();
-  };
-
-  window.baix = function () {
-    rotX -= 90;
-    updateCubeRotation();
-  };
-
-  window.esquerra = function () {
-    rotY += 90;
-    updateCubeRotation();
-  };
-
-  window.dreta = function () {
-    rotY -= 90;
-    updateCubeRotation();
-  };
-
-  function updateCubeRotation() {
-    cub.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
-  }
-
-  // Linterna
+    // Linterna
   document.body.classList.add('linterna');
   document.body.addEventListener('mousemove', (e) => {
     const x = e.clientX;
@@ -97,4 +12,41 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.style.setProperty('--x', `${x}px`);
     document.body.style.setProperty('--y', `${y}px`);
   });
+
+});
+
+let slideIndex = 1;
+showSlides(slideIndex);
+
+// Controls per avançar o retrocedir
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Controls per clicar una miniatura
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("demo");
+  let captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+
+// Inicialitzem el slider en carregar la pàgina
+document.addEventListener("DOMContentLoaded", () => {
+  showSlides(slideIndex);
 });
